@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+         background-color: #DB72F2; 
+        } 
+        h1{
+            color: aqua;
+            text-align: center;
+            font-size: 6em;
+        }
+        ul{
+            color:rgb(185, 99, 37);
+            font-size: 3em;
+            margin-left: 2em;
+        }
+        #but{
+            margin-left: 4em;
+            font-size: 2em;
+        }
+    </style>
 </head>
 <body>
-    
-</body>
+    <h1>Hello, my friend</h1>
+    <br/>
+    <ul>
+        <li>Just</li>
+        <li>Another</li>
+        <li>List</li>
+    </ul>
+    <br/>
+    <input type="text" id="t" size="40" onclick="changeColorRed()">
+    <input type="button" id="but" value="Click me" onclick="changeColor();">    
+    <script src="task.js"></script>
+    </body>
 </html>
