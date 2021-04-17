@@ -11,14 +11,14 @@ pets[3] = "bird"
 var check = true
 function changeColor() {
     if(check) {
-        document.getElementById("but").style.backgroundColor = "lightgreen";
+        document.body.style.backgroundColor = "lightgreen"
         check = false
     }
     else{
-        document.getElementById("but").style.backgroundColor = "white";
+        document.body.style.backgroundColor = "purple"
         check = true
     }
 }
 function changeColorRed() {
-    document.getElementById("t").style.backgroundColor = "red"
+    document.getElementById("t").style.backgroundColor = "coral"
 }

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <style>
+        body{
+        box-sizing:border-box;
+        background-color: white; 
+        }
+
+        .slideshow-container {
+        max-width: 1400px;
+        position: relative;
+        margin: auto;
+        }
+        .mySlides {
+        display: none;
+        }
+        .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        }
+
+        .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+        }
+
+        .text {
+        color: #f2f2f2;
+        font-size: 4em;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        text-shadow: 2px 3px rgb(54, 54, 54);
+        }
+
+        .numbertext {
+        color: #f2f2f2;
+        font-size: 2em;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+        }
+
+        .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+        background-color: #717171;
+        }
+
+        .textHead {
+        padding: 20px 20px;
+        position: absolute;
+        }
+
+        .h{
+        padding: 0px 20px;
+        color: rgb(70, 68, 68);
+        font-size: 4.5em;
+        text-shadow: 2px 3px black;
+        }
+
+        .content{
+        padding: 0px 25px;
+        color: black;
+        font-size: 1.5em;
+        }
+
+        .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+        }
+
+        @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img src="img1.jpg" style="width:100%">
+          <div class="text">Switherland</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 5</div>
+          <img src="img2.jpg" style="width:100%">
+          <div class="text">Egypt</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 5</div>
+          <img src="img3.jpg" style="width:100%">
+          <div class="text">Russia</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img src="img4.jpg" style="width:100%">
+            <div class="text">Croatia</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img src="img5.jpg" style="width:100%">
+            <div class="text">Netherland</div>
+        </div>
+      
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+      <div class="mySlides textHead">
+        <h1 class="h">Switherland</h1>
+        <p class="content">Yellowtail amberjack Cherubfish horsefish yellow-and-black triplefin trevally sleeper bigeye channel catfish combtooth blenny snake eel, loosejaw tiger shark. Ronquil lake chub Antarctic cod queen parrotfish toadfish. Toadfish yellowfin pike blue gourami redtooth triggerfish, lionfish, tube-eye warbonnet upside-down catfish jellynose fish blacktip reef shark. Shad, yellowmargin triggerfish ghoul. Herring smelt finback cat shark northern pike. Tuna pearlfish common carp Alaska blackfish barbel smalltooth sawfish Reef triggerfish Black mackerel electric catfish butterfly ray; pencilsmelt tidewater goby bocaccio. Elver, "frilled shark tripletail pencil catfish ribbon sawtail fish." Velvetfish mustard eel perch eel-goby whitefish moonfish, sheatfish leopard danio marblefish Rasbora, elver, Gila trout bluegill filefish straptail.</p>
+      </div>
+      <div class="mySlides textHead">
+        <h1 class="h">Egypt</h1>
+        <p class="content">Tuna pearlfish common carp Alaska blackfish barbel smalltooth sawfish Reef triggerfish Black mackerel electric catfish butterfly ray; pencilsmelt tidewater goby bocaccio. Paradise fish killifish houndshark yellow-edged moray; black bass Indian mul jackfish Sundaland noodlefish, pearleye? Mudsucker Atlantic herring striped bass Cornish Spaktailed Bream African glass catfish houndshark cobbler. Elver, "frilled shark tripletail pencil catfish ribbon sawtail fish." Velvetfish mustard eel perch eel-goby whitefish moonfish, sheatfish leopard danio marblefish Rasbora, elver, Gila trout bluegill filefish straptail. Carpetshark ghost fish, Oriental loach whiting trumpeter giant sea bass pearl perch.</p>
+      </div>
+      <div class="mySlides textHead">
+        <h1 class="h">Russia</h1>
+        <p class="content">Sea chub scup velvet catfish mail-cheeked fish sargassum fish fingerfish summer flounder threespine stickleback bluntnose knifefish, yellowfin surgeonfish stream catfish? False moray, chub, Siamese fighting fish freshwater flyingfish bangus starry flounder rockling carp. New Zealand smelt Pacific salmon white marlin ling cod, yellow perch river stingray requiem shark. Jack Dempsey Oriental loach tetra carpetshark beluga sturgeon livebearer dwarf gourami. Angelfish pineconefish redside; denticle herring; airsac catfish, quillback peamouth sand goby Atlantic silverside dwarf loach pleco. Yellowtail amberjack Cherubfish horsefish yellow-and-black triplefin trevally sleeper bigeye channel catfish combtooth blenny snake eel, loosejaw tiger shark.</p>
+      </div>
+      <div class="mySlides textHead">
+        <h1 class="h">Croatia</h1>
+        <p class="content">Blue whiting king of herring cichlid North Pacific daggertooth flagfish freshwater herring--Pacific lamprey brown trout? Sailfin silverside squeaker Pacific trout sabertooth fish stickleback steelhead, river shark. Rattail, "long-whiskered catfish, southern grayling madtom grunter airbreathing catfish yellowfin pike kissing gourami glass knifefish, roanoke bass, milkfish ilisha." Sand knifefish ghost pipefish ghost flathead prickly shark threadfin threadsail Pacific trout golden shiner bull shark. Gudgeon, "Atlantic trout tenuis: thornyhead Atlantic saury hog sucker." Deep sea anglerfish Moses sole medusafish snipefish cuchia, whitetip reef shark.</p>
+      </div>
+      <div class="mySlides textHead">
+        <h1 class="h">Netherland</h1>
+        <p class="content">Rocket danio, armorhead pleco, herring flagfin crappie wrasse, thornfish giant sea bass boafish. Greenling pipefish Black mackerel muskellunge yellow-edged moray gizzard shad kokopu cardinalfish masu salmon, "paddlefish tui chub cookie-cutter shark; mrigal lungfish." Marine hatchetfish gulper eel scabbard fish rockling slickhead Antarctic cod Alaska blackfish, bonnetmouth, green swordtail. Snailfish, snubnose parasitic eel Russian sturgeon mud catfish crevice kelpfish ling ridgehead deep sea anglerfish. Slender barracudina Sundaland noodlefish tarwhine wels catfish arapaima grideye, gurnard rockweed gunnel, deep sea eel marlin brook trout Kafue pike. Dogteeth tetra tui chub oceanic whitetip shark herring giant danio skate Australasian salmon candlefish Colorado squawfish temperate bass Russian sturgeon. Rudd crappie Blobfish spinyfin spadefish menhaden trout-perch, naked-back knifefish icefish fire bar danio?</p>
+      </div>
+      <script>
+        var slideIndex = 1
+        showSlides(slideIndex)
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n)
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n)
+        }
+
+        function showSlides(n) {
+        var i = 0
+        var slides = document.getElementsByClassName("fade");
+        var dots = document.getElementsByClassName("dot");
+        var texts = document.getElementsByClassName("textHead");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            texts[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        texts[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        }
+      </script>
+</body>
+</html>

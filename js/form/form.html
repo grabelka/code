@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body{
+        box-sizing:border-box;
+        background-color: #d3bc7d; 
+        display: flex;
+        justify-content: center;
+        }
+        div{
+        margin: 0 auto;
+        text-align: center;
+        position: absolute;
+        }
+        h1{
+        margin-top: 2em;
+        color: rgb(70, 68, 68);
+        font-size: 4.5em;
+        text-shadow: 2px 3px black;
+        }
+        h2{
+        font-size: 2.2em;
+        }
+        #log{
+        width: 80%;
+        height: 25px;
+        border-radius: 4px;
+        }
+        #pas{
+        width: 80%;
+        height: 25px;
+        border-radius: 4px;
+        }
+        #but{
+        width: 10em;
+        height: 3em;
+        font-weight: bold;
+        font-size: 1em;
+        background-color: rgb(156, 150, 143);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Welcome!</h1>
+        <h2>Sign in</h2>
+        <input type="text" id="log" size="20" onclick="check();">
+        <br>
+        <input type="password" id="pas" size="20" onclick="check();">
+        <br><br><br>
+        <input type="button" id="but" value="Confirm" onclick="click();">
+    </div>
+    <script>
+        function check()
+        {
+            let r = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/g
+            let re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/g
+            const interval = setInterval(() => {
+                var l = document.getElementById('log').value
+                var p = document.getElementById('pas').value
+                let matchesPas = p.match(re)
+                let matchesLog = l.match(r)
+                if(!matchesLog) document.getElementById('log').style.backgroundColor = 'coral'
+                if(matchesLog) document.getElementById('log').style.backgroundColor = 'white'
+                if(!matchesPas) document.getElementById('pas').style.backgroundColor = 'coral'
+                if(matchesPas) document.getElementById('pas').style.backgroundColor = 'white'
+            }, 1000)
+        }
+        function click()
+        {
+            let r = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/g
+            let re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/g
+            var l = document.getElementById('log').value
+            var p = document.getElementById('pas').value
+            let matchesPas = p.match(re)
+            let matchesLog = l.match(r)
+            if(!matchesLog) alert("INVALID E-MAIL ADRESS")
+            else if(!matchesPas) alert("INVALID PASSWORD")
+            else{
+                document.getElementById('log').value = ""
+                document.getElementById('pas').value = ""
+            }
+        }
+    </script>
+</body>
+</html>

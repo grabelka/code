@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best timer ever</title>
+    <style>
+        body{
+         background-color: #a03a6a; 
+        } 
+        h1{
+            color: aqua;
+            text-align: center;
+            font-size: 10em;
+        }
+        div{
+            min-height: 7em;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <h1 id="time">Timer</h1>
+    <script>
+        var timer = prompt("Set timer", "10:00")
+        var timeArray = timer.split(':');
+        var colors = ['lightgreen', 'lightblue', 'fuchsia', 'rose', 'jellow', 'pink', 'skyblue', 'MediumOrchid', 'BurlyWood', 'Chartreuse', 'gold']
+        const interval = setInterval(() => {
+            if (timeArray[1] == 0) {
+                timeArray[0] -= 1
+                timeArray[1] = 59
+            }
+            else{
+                timeArray[1] -= 1
+            }
+            var textNow = timeArray[0] + ":" + timeArray[1]
+            document.getElementById("time").innerHTML = textNow 
+            if (timeArray[0] == 0 && timeArray[1] == 0) {
+                clearInterval(interval)
+                document.getElementById("time").innerHTML = "Timer is over"
+            }
+        }, 1000);
+        const changeColor = setInterval(() => {
+            var n = Math.floor(Math.random() * 10)
+            document.body.style.backgroundColor = colors[n]
+            if (timeArray[0] == 0 && timeArray[1] == 0) {
+                clearInterval(changeColor)
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
