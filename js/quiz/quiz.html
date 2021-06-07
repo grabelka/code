@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body{
+         background-color: plum; 
+         display: flex;
+        justify-content: center;
+        } 
+        div{
+        margin-top: 6em;
+        text-align: center;
+        position: relative;
+        }
+        input{
+        width: 6em;
+        height: 2em;
+        font-weight: bold;
+        font-size: 2em;
+        background-color: rgb(136, 117, 117);
+        cursor: pointer;
+        }
+        h1{
+        color: rgb(4, 136, 107);
+        text-align: center;
+        font-size: 5em;
+        text-shadow: 2px 2px rgb(39, 38, 38);
+        }
+        p{
+        font-size: 2em;
+        color: crimson;
+        cursor: pointer;
+        }
+        .quest{
+        display: none;
+        }
+        #fin{
+        display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="head">
+            <h1>Awesome math quiz</h1>
+            <input type="button" value="Take a quiz" onclick="clicker()">
+        </div>
+        <div class="quest" id="first">
+            <h1>1 + 2 = ?</h1>
+            <span>
+                <input type="button" value="2" onclick="bad(1)">
+                <input type="button" value="3" onclick="good(1)">
+                <input type="button" value="12" onclick="bad(1)">
+            </span>
+        </div>
+        <div class="quest" id="second">
+            <h1>5 * 7 = ?</h1>
+            <span>
+                <input type="button" value="30" onclick="bad(2)">
+                <input type="button" value="45" onclick="bad(2)">
+                <input type="button" value="35" onclick="good(2)">
+            </span>
+        </div>
+        <div class="quest" id="third">
+            <h1>123 + 321 + 123 = ?</h1>
+            <span>
+                <input type="button" value="456" onclick="bad(3)">
+                <input type="button" value="567" onclick="good(3)">
+                <input type="button" value="765" onclick="bad(3)">
+            </span>
+        </div>
+        <div class="quest" id="fourth">
+            <h1>ln(1) = ?</h1>
+            <span>
+                <input type="button" value="0" onclick="good(4)">
+                <input type="button" value="1" onclick="bad(4)">
+                <input type="button" value="e" onclick="bad(4)">
+            </span>
+        </div>
+        <div class="quest" id="fiveth">
+            <h1>37x = 24x + 91</h1>
+            <span>
+                <input type="button" value="9" onclick="bad(5)">
+                <input type="button" value="8" onclick="bad(5)">
+                <input type="button" value="7" onclick="good(5)">
+            </span>
+        </div>
+        <div id="fin">
+            <h1 id="res">Awesome math quiz</h1>
+            <input type="button" value="Try again" onclick="again()">
+            <p id="like" onclick="liker()">Like it ❤ 0</p>
+        </div>
+    </div>
+    <script>
+        var score = 0
+        var modes = ['head', 'first', 'second', 'third', 'fourth', 'fiveth', 'fin']
+        function clicker(){
+            document.getElementById('head').style.display = 'none'
+            document.getElementById('first').style.display = 'block'
+        }
+        function good(n){
+            score ++
+            document.getElementById(modes[n]).style.display = 'none'
+            document.getElementById(modes[n+1]).style.display = 'block'
+            document.getElementById('res').innerText = 'Your result is ' + score
+        }
+        function bad(n){
+            document.getElementById(modes[n]).style.display = 'none'
+            document.getElementById(modes[n+1]).style.display = 'block'
+            document.getElementById('res').innerText = 'Your result is ' + score
+        }
+        function again(){
+            score = 0
+            document.getElementById('fin').style.display = 'none'
+            document.getElementById('head').style.display = 'block'
+        }
+        function liker(){
+            var t = document.getElementById('like').textContent
+            var row = t.split(' ')
+            var n = row[row.length - 1]
+            row[row.length - 1] = ""
+            t = row.join(' ')
+            n ++
+            t.replace(/\d/g, "")
+            document.getElementById('like').innerText = t + n
+        }
+    </script>
+</body>
+</html>

@@ -4,15 +4,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Joke of the day</title>
     <style>
         body{
-         background-color: #5eceac; 
+        box-sizing:border-box;
+        background-color: #c991b6; 
+        display: flex;
+        justify-content: center;
+        }
+        div{
+        margin-top: 6em;
+        text-align: center;
+        position: relative;
+        }
+        input{
+        width: 10em;
+        height: 3em;
+        font-weight: bold;
+        font-size: 4em;
+        background-color: rgb(199, 198, 198);
+        }
+        #but{
+        display: block;
+        }
+        #prog {
+        margin-top: 5em;
+        display: none;
+        width: 600px;
+        background-color: grey;
+        }
+        #bar{
+        background-color: rgb(148, 59, 114);
+        width: 56%;
+        height: 40px;
+        }
+        #joke{
+        border: 3px inset black;
+        display: none;
+        width: 600px;
+        background-color: rgb(224, 204, 178); 
+        }
+        h1{
+        padding: 0.5em;
+        font-size: 3em;
+        color: rgb(70, 68, 68);
+        text-shadow: 1px 1px black;
+        padding-bottom: 0em;
+        }
+        p{
+        font-size: 40px;
+        color: crimson;
+        text-align: end;
+        margin: 0px;
+        padding: 0px;
+        margin-right: 1em;
+        cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>Hello, my friend</h1>  
-    <script></script>
+    <div>
+        <div id="but">
+            <input type="button" value="Joke of the day" onclick="clicker()">
+        </div>
+        <div id="prog">
+            <div id="bar"></div>
+        </div>
+        <div id="joke">
+            <h1 id="h">Joke</h1>
+            <p id="like" onclick="liker()">❤ 0</p>
+        </div>
+    </div>
+    <script>
+        function clicker(){
+            document.getElementById('but').style.display = 'none'
+            document.getElementById('prog').style.display = 'block'
+            var value = 1
+            var jokes = ["What kind of exercise do lazy people do? Diddly-squats.", "What do you call a pony with a cough? A little horse!", "What is Forrest Gump's password? 1Forrest1.", "Why did the M&M go to school? He wanted to be a Smartie.", "What did one traffic light say to the other? Stop looking at me, I'm changing!", "What do you call bears with no ears? B.", "What's a foot long and slippery? A slipper!", "Why do French people eat snails? They don't like fast food!", "What's red and moves up and down? A tomato in an elevator!", "I invented a new word today: Plagiarism.", "What is sticky and brown? A stick!", "How does a rabbi make coffee? Hebrews it!", "Rest in peace boiling water. You will be mist!", "How do you throw a space party? You planet!", "Want to hear a construction joke? Oh never mind, I'm still working on that one.", "Why don't scientists trust atoms? Because they make up everything!", "I hate Russian dolls… they're so full of themselves!", "Talk is cheap? Have you ever talked to a lawyer?", "Why did the gym close down? It just didn't work out!", "Two artists had an art contest. It ended in a draw!", "A plateau is the highest form of flattery.", "I have a fear of speed bumps. But I am slowly getting over it.", "You can only get spoiled milk from a pampered cow.", "What do you call a boomerang that doesn't come back? A stick!", "You know what I saw today? Everything I looked at."]
+            const interval = setInterval(() => {
+                if (value == 100){
+                    clearInterval(interval)
+                    document.getElementById('prog').style.display = 'none'
+                    document.getElementById('joke').style.display = 'block'
+                    var n = Math.floor(Math.random() * 25)
+                    document.getElementById('h').innerHTML = jokes[n]
+                }
+                else{
+                    value += 1
+                    document.getElementById('bar').style.width = value + '%'
+                }
+            }, 10);
+        }
+        function liker(){
+            var t = document.getElementById('like').textContent
+            var row = t.split(' ')
+            var n = row[row.length - 1]
+            row[row.length - 1] = ""
+            t = row.join(' ')
+            n ++
+            t.replace(/\d/g, "")
+            document.getElementById('like').innerText = t + n
+        }
+    </script>
     </body>
 </html>

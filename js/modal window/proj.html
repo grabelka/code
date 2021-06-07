@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window</title>
+    <style>
+        .overlay{
+            display: none;
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            top: 0px;
+            background: rgba(50, 50, 50, 0.5);
+        }
+        .window {
+            margin: 200px auto;
+            min-height: 100px;
+            max-height: 400px;
+            width: 400px;
+            background-color: seashell;
+            border-radius: 8px;
+            border: 1px solid black;
+        }
+        .header, .footer {
+            font-size: 2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        #title {
+            margin: 15px;
+        }
+        #close {
+            margin: 7px;
+            cursor: pointer;
+        }
+        #message {
+            margin: 20px;
+        }
+        button {
+            font-size: 20px;
+            margin-bottom: 15px;
+            margin-left: 50px;
+            margin-right: 50px;
+            cursor: pointer;
+            min-width: 100px;
+        }
+        img {
+            margin: 20px auto;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Illo consectetur aspernatur nihil laboriosam.</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ut sed repellat? Impedit, aspernatur ea?</p>
+        <p>Eum quo sed placeat modi, dolor odio. Ullam! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint dolore nisi, nihil unde quia a magni culpa? Quia quos voluptatum ducimus sint est.</p>
+        <button onclick="have()">To receive my joke</button>
+        <img id="happy" src="" alt="I'm pleased that you liked it :)">
+        <img id="sad" src="https://www.example.com/images/dinosaur.jpg" alt="Why you don't like a joke? :(">
+    </div>
+    <div class="overlay" id="overlay">
+        <div class="window" id="window">
+            <div class="header">
+                <span id="title">Title</span>
+                <span id="close" onclick="closer()">&times;</span>
+            </div>
+            <p id="message">Some Text</p>
+            <div class="footer">
+                <button id="ok" onclick="ok()">Ok</button>
+                <button onclick="notOk()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function closer(){
+            document.getElementById('container').style.display = 'none'
+            document.getElementById('overlay').style.display = 'none'
+        }
+        function have(){
+            document.getElementById('sad').style.display = 'none'
+            document.getElementById('happy').style.display = 'none'
+            var m = -600
+            var jokes = ["What kind of exercise do lazy people do? Diddly-squats.", "What do you call a pony with a cough? A little horse!", "What is Forrest Gump's password? 1Forrest1.", "Why did the M&M go to school? He wanted to be a Smartie.", "What did one traffic light say to the other? Stop looking at me, I'm changing!", "What do you call bears with no ears? B.", "What's a foot long and slippery? A slipper!", "Why do French people eat snails? They don't like fast food!", "What's red and moves up and down? A tomato in an elevator!", "I invented a new word today: Plagiarism.", "What is sticky and brown? A stick!", "How does a rabbi make coffee? Hebrews it!", "Rest in peace boiling water. You will be mist!", "How do you throw a space party? You planet!", "Want to hear a construction joke? Oh never mind, I'm still working on that one.", "Why don't scientists trust atoms? Because they make up everything!", "I hate Russian dolls… they're so full of themselves!", "Talk is cheap? Have you ever talked to a lawyer?", "Why did the gym close down? It just didn't work out!", "Two artists had an art contest. It ended in a draw!", "A plateau is the highest form of flattery.", "I have a fear of speed bumps. But I am slowly getting over it.", "You can only get spoiled milk from a pampered cow.", "What do you call a boomerang that doesn't come back? A stick!", "You know what I saw today? Everything I looked at."]
+            var titles = ["Have a good day", "Enjoy the day and feel happy.", "May God grant you whatever you want.", "Make Everyday your best day!", "Have a very wonderful day!", "Have a nice day", "Good morning, or afternoon, or evening, depending on where you are :)"]
+            var n = Math.floor(Math.random() * 7)
+            document.getElementById("title").innerHTML = titles[n]
+            n = Math.floor(Math.random() * 25)
+            document.getElementById("message").innerHTML = jokes[n]
+            const interval = setInterval(() => {
+                m +=10
+                document.getElementById('window').style.marginTop = m + "px"
+                if(m == -580) document.getElementById('overlay').style.display = 'block'
+                if (m == 200) {
+                    clearInterval(interval)
+                }
+            }, 1)
+        }
+        function ok(){
+            var m = 200
+            const interval = setInterval(() => {
+                m -=10
+                document.getElementById('window').style.marginTop = m + "px"
+                if (m == -600) {
+                    document.getElementById('overlay').style.display = 'none'
+                    clearInterval(interval)
+                }
+            }, 1)
+            document.getElementById('happy').style.display = 'block'
+        }function notOk(){
+            var m = 200
+            const interval = setInterval(() => {
+                m -=10
+                document.getElementById('window').style.marginTop = m + "px"
+                if (m == -600) {
+                    document.getElementById('overlay').style.display = 'none'
+                    clearInterval(interval)
+                }
+            }, 1)
+            document.getElementById('sad').style.display = 'block'
+        }
+    </script>
+    </body>
+</html>
